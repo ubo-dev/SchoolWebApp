@@ -1,4 +1,4 @@
-package com.eazybytes.eazyschool.config;
+package com.ubo.schoolwebapp.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -36,14 +36,14 @@ public class ProjectSecurityConfig {
     @Bean
     public InMemoryUserDetailsManager userDetailsService() {
 
-        UserDetails user = User.withDefaultPasswordEncoder()
+        UserDetails user = User.builder()
                 .username("user")
-                .password("12345")
+                .password("{noop}12345")
                 .roles("USER")
                 .build();
-        UserDetails admin = User.withDefaultPasswordEncoder()
+        UserDetails admin = User.builder()
                 .username("admin")
-                .password("54321")
+                .password("{noop}54321")
                 .roles("USER", "ADMIN")
                 .build();
         return new InMemoryUserDetailsManager(user, admin);
