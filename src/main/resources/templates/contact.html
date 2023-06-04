@@ -19,7 +19,7 @@ Author URL: http://w3layouts.com
 <body>
 
     <!-- header -->
-	<div th:replace="~{header :: header}">...</div>
+    <div th:replace="~{header :: header}">...</div>
     <!-- //header -->
 
     <!-- inner banner -->
@@ -46,14 +46,13 @@ Author URL: http://w3layouts.com
             <div class="row contact-block">
                 <div class="col-md-7 contact-right">
                     <ul>
-                        <li class="alert alert-danger" role="alert"
-                            th:each="error : ${#fields.errors('contact.*')}" th:text="${error}" />
+                        <li class="alert alert-danger" role="alert" th:each="error : ${#fields.errors('contact.*')}" th:text="${error}" />
                     </ul>
-                    <form th:action="@{/saveMsg}" method="post" class="signin-form" th:object="${contact}">
+                    <form action="/saveMsg" method="post" class="signin-form" th:object="${contact}">
                         <div class="input-grids">
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <input type="text" th:field="*{name}" placeholder="Your Name" required="true"
+                                    <input type="text" th:field="*{name}" placeholder="Your Name"
                                         class="contact-input" />
                                 </div>
                                 <div class="col-sm-6">
@@ -61,7 +60,7 @@ Author URL: http://w3layouts.com
                                         class="contact-input" />
                                 </div>
                             </div>
-                            <input type="email" th:field="*{email}" placeholder="Your Email" required="true"
+                            <input type="text" th:field="*{email}" placeholder="Your Email"
                                 class="contact-input" />
                             <input type="text" th:field="*{subject}" placeholder="Subject"
                                 class="contact-input" />
@@ -128,7 +127,7 @@ Author URL: http://w3layouts.com
     <!-- //contact block -->
 
     <!-- footer block -->
-	<div th:replace="~{footer :: footer}">...</div>
+    <div th:replace="~{footer :: footer}">...</div>
     <!-- //footer block -->
 
     <!-- Js scripts -->
